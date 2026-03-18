@@ -10,18 +10,19 @@ const FeaturedCollection = async () => {
     .from('properties')
     .select('*')
     .eq('is_featured', true)
-    .limit(4);
+    .limit(2);
 
-  const collections: Collection[] = (properties || []).map((p) => ({
+  const collections: Collection[] = (properties ?? []).map((p) => ({
     id: p.id,
+    slug: p.slug,
     title: p.title,
     location: p.location,
     price: p.price,
-    image: p.image,
-    beds: p.beds,
-    baths: p.baths,
-    sqft: p.sqft,
-    tag: p.is_new ? 'New Arrival' : 'Exclusive',
+    imagenes: p.image_urls || ['/placeholder.jpg'],
+    beds: p.bedrooms,
+    baths: p.bathrooms,
+    sqft: p.area,
+    tag: 'Destacado',
   }));
 
   return (
@@ -47,12 +48,19 @@ const FeaturedCollection = async () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {collections.map((collection) => (
-          <CollectionCard key={collection.id} collection={collection} />
-        ))}
+        {collections.length > 0 ? (
+          collections.map((collection) => (
+            <CollectionCard key={collection.id} collection={collection} />
+          ))
+        ) : (
+          <p className="text-nordic-muted text-sm col-span-2">
+            No featured properties available.
+          </p>
+        )}
       </div>
     </section>
   );
 };
 
 export default FeaturedCollection;
+

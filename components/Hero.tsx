@@ -1,4 +1,41 @@
+'use client';
+
+import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import FiltersModal from './FiltersModal';
+
 const Hero = () => {
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  
+  const currentType = searchParams.get('type') || 'All';
+  const currentSearch = searchParams.get('search') || '';
+  const [searchValue, setSearchValue] = useState(currentSearch);
+
+  const handleTypeSelect = (type: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (type === 'All') {
+      params.delete('type');
+    } else {
+      params.set('type', type);
+    }
+    params.delete('page');
+    router.push(`/?${params.toString()}`, { scroll: false });
+  };
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const params = new URLSearchParams(searchParams.toString());
+    if (searchValue.trim()) {
+      params.set('search', searchValue.trim());
+    } else {
+      params.delete('search');
+    }
+    params.delete('page');
+    router.push(`/?${params.toString()}`, { scroll: false });
+  };
+
   return (
     <section className="py-12 md:py-16">
       <div className="max-w-3xl mx-auto text-center space-y-8">
@@ -11,7 +48,7 @@ const Hero = () => {
           .
         </h1>
 
-        <div className="relative group max-w-2xl mx-auto">
+        <form onSubmit={handleSearchSubmit} className="relative group max-w-2xl mx-auto">
           <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
             <span className="material-icons text-nordic-muted text-2xl group-focus-within:text-mosque transition-colors font-material-icons">
               search
@@ -19,32 +56,35 @@ const Hero = () => {
           </div>
           <input
             type="text"
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
             className="block w-full pl-12 pr-4 py-4 rounded-xl border-none bg-white text-nordic shadow-soft placeholder-nordic-muted/60 focus:ring-2 focus:ring-mosque focus:bg-white transition-all text-lg"
             placeholder="Search by city, neighborhood, or address..."
           />
-          <button className="absolute inset-y-2 right-2 px-6 bg-mosque hover:bg-mosque/90 text-white font-medium rounded-lg transition-colors flex items-center justify-center shadow-lg shadow-mosque/20">
+          <button type="submit" className="absolute inset-y-2 right-2 px-6 bg-mosque hover:bg-mosque/90 text-white font-medium rounded-lg transition-colors flex items-center justify-center shadow-lg shadow-mosque/20">
             Search
           </button>
-        </div>
+        </form>
 
         <div className="flex items-center justify-center gap-3 overflow-x-auto hide-scroll py-2 px-4 -mx-4">
-          <button className="whitespace-nowrap px-5 py-2 rounded-full bg-nordic text-white text-sm font-medium shadow-lg shadow-nordic/10 transition-transform hover:-translate-y-0.5">
-            All
-          </button>
-          <button className="whitespace-nowrap px-5 py-2 rounded-full bg-white border border-nordic/5 text-nordic-muted hover:text-nordic hover:border-mosque/50 text-sm font-medium transition-all hover:bg-mosque/5">
-            House
-          </button>
-          <button className="whitespace-nowrap px-5 py-2 rounded-full bg-white border border-nordic/5 text-nordic-muted hover:text-nordic hover:border-mosque/50 text-sm font-medium transition-all hover:bg-mosque/5">
-            Apartment
-          </button>
-          <button className="whitespace-nowrap px-5 py-2 rounded-full bg-white border border-nordic/5 text-nordic-muted hover:text-nordic hover:border-mosque/50 text-sm font-medium transition-all hover:bg-mosque/5">
-            Villa
-          </button>
-          <button className="whitespace-nowrap px-5 py-2 rounded-full bg-white border border-nordic/5 text-nordic-muted hover:text-nordic hover:border-mosque/50 text-sm font-medium transition-all hover:bg-mosque/5">
-            Penthouse
-          </button>
+          {['All', 'House', 'Apartment', 'Villa', 'Penthouse'].map((type) => (
+            <button
+              key={type}
+              onClick={() => handleTypeSelect(type)}
+              className={`whitespace-nowrap px-5 py-2 rounded-full text-sm font-medium transition-transform transition-all ${
+                currentType === type
+                  ? 'bg-nordic text-white shadow-lg shadow-nordic/10 hover:-translate-y-0.5'
+                  : 'bg-white border border-nordic/5 text-nordic-muted hover:text-nordic hover:border-mosque/50 hover:bg-mosque/5'
+              }`}
+            >
+              {type}
+            </button>
+          ))}
           <div className="w-px h-6 bg-nordic/10 mx-2"></div>
-          <button className="whitespace-nowrap flex items-center gap-1 px-4 py-2 rounded-full text-nordic font-medium text-sm hover:bg-black/5 transition-colors">
+          <button 
+            onClick={() => setIsFiltersOpen(true)}
+            className="whitespace-nowrap flex items-center gap-1 px-4 py-2 rounded-full text-nordic font-medium text-sm hover:bg-black/5 transition-colors"
+          >
             <span className="material-icons text-base font-material-icons">
               tune
             </span>{' '}
@@ -52,6 +92,8 @@ const Hero = () => {
           </button>
         </div>
       </div>
+
+      <FiltersModal isOpen={isFiltersOpen} onClose={() => setIsFiltersOpen(false)} />
     </section>
   );
 };

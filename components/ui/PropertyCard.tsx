@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Property } from '@/types/property';
 
 interface PropertyCardProps {
@@ -7,14 +8,14 @@ interface PropertyCardProps {
 
 const PropertyCard = ({ property }: PropertyCardProps) => {
   return (
-    <article className="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-soft transition-all duration-300 group cursor-pointer h-full flex flex-col">
+    <article className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-mosque/5 group flex flex-col h-full">
       {/* Image Container */}
-      <div className="relative aspect-4/3 overflow-hidden">
+      <div className="relative aspect-[4/3] overflow-hidden">
         <Image
-          src={property.image}
+          src={property.image_urls?.[0] || '/placeholder.jpg'}
           alt={property.title}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
         {/* Favorite Button */}
@@ -24,11 +25,9 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
           </span>
         </button>
 
-        {/* Type Tag */}
-        <div
-          className={`absolute bottom-3 left-3 text-white text-xs font-bold px-2 py-1 rounded ${property.type === 'sale' ? 'bg-nordic/90' : 'bg-mosque/90'}`}
-        >
-          {property.type === 'sale' ? 'FOR SALE' : 'FOR RENT'}
+        {/* For Sale badge */}
+        <div className="absolute bottom-3 left-3 text-white text-xs font-bold px-2 py-1 rounded bg-nordic/90">
+          FOR SALE
         </div>
       </div>
 
@@ -37,9 +36,6 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
         <div className="flex justify-between items-baseline mb-2">
           <h3 className="font-bold text-lg text-nordic">
             ${property.price.toLocaleString()}
-            {property.type === 'rent' && (
-              <span className="text-sm font-normal text-nordic-muted">/mo</span>
-            )}
           </h3>
         </div>
 
@@ -54,24 +50,32 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
             <span className="material-icons text-sm text-mosque/80 font-material-icons">
               king_bed
             </span>{' '}
-            {property.beds}
+            {property.bedrooms}
           </div>
           <div className="flex items-center gap-1 text-nordic-muted text-xs">
             <span className="material-icons text-sm text-mosque/80 font-material-icons">
               bathtub
             </span>{' '}
-            {property.baths}
+            {property.bathrooms}
           </div>
           <div className="flex items-center gap-1 text-nordic-muted text-xs">
             <span className="material-icons text-sm text-mosque/80 font-material-icons">
               square_foot
             </span>{' '}
-            {property.sqft}m²
+            {property.area}m²
           </div>
         </div>
+        {/* Details Button */}
+        <Link
+          href={`/propiedades/${property.slug}`}
+          className="block w-full text-center bg-mosque/5 hover:bg-mosque text-mosque hover:text-white py-3 rounded-xl font-medium transition-colors mt-4"
+        >
+          Ver Detalles
+        </Link>
       </div>
     </article>
   );
 };
 
 export default PropertyCard;
+

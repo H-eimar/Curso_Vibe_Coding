@@ -1,16 +1,14 @@
-export type PropertyType = 'sale' | 'rent';
-
 export interface Property {
   id: string;
+  slug: string;
   title: string;
   location: string;
   price: number;
-  image: string;
-  beds: number;
-  baths: number;
-  sqft: number;
-  type: PropertyType;
-  is_new: boolean;
+  image_urls: string[];
+  bedrooms: number;
+  bathrooms: number;
+  area: number;
+  description: string | null;
+  is_featured: boolean;
   created_at: string;
-  is_featured?: boolean;
 }

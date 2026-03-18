@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Collection } from '@/data/mockData';
 
 interface CollectionCardProps {
@@ -7,11 +8,14 @@ interface CollectionCardProps {
 
 const CollectionCard = ({ collection }: CollectionCardProps) => {
   return (
-    <div className="group relative rounded-xl overflow-hidden shadow-soft bg-white cursor-pointer">
+    <Link 
+      href={`/propiedades/${collection.slug}`}
+      className="group relative rounded-xl overflow-hidden shadow-soft bg-white cursor-pointer block"
+    >
       {/* Image Container */}
       <div className="aspect-4/3 w-full overflow-hidden relative">
         <Image
-          src={collection.image}
+          src={collection.imagenes[0]}
           alt={collection.title}
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -23,11 +27,11 @@ const CollectionCard = ({ collection }: CollectionCardProps) => {
         </div>
 
         {/* Favorite Button */}
-        <button className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-nordic hover:bg-mosque hover:text-white transition-all z-10">
+        <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-nordic hover:bg-mosque hover:text-white transition-all z-10">
           <span className="material-icons text-xl font-material-icons">
             favorite_border
           </span>
-        </button>
+        </div>
 
         {/* Gradient Overlay */}
         <div className="absolute bottom-0 inset-x-0 h-1/2 bg-linear-to-t from-black/60 to-transparent opacity-60"></div>
@@ -74,7 +78,7 @@ const CollectionCard = ({ collection }: CollectionCardProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
