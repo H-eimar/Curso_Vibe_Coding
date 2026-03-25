@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import FeaturedCollection from '@/components/FeaturedCollection';
 import NewInMarket from '@/components/NewInMarket';
 import { createClient } from '@/lib/supabase/server';
+import { getDictionary } from '@/lib/i18n';
 
 const PAGE_SIZE = 8;
 
@@ -23,6 +24,7 @@ export default async function Home({ searchParams }: HomePageProps) {
   const to = from + PAGE_SIZE - 1;
 
   const supabase = await createClient();
+  const dict = await getDictionary();
 
   let query = supabase
     .from('properties')
@@ -46,7 +48,7 @@ export default async function Home({ searchParams }: HomePageProps) {
     <>
       <Navbar />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <Hero />
+        <Hero dict={dict.hero} />
         {!isFiltering && <FeaturedCollection />}
         <NewInMarket
           properties={properties ?? []}

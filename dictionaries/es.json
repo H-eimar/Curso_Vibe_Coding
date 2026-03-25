@@ -1,0 +1,89 @@
+{
+  "common": {
+    "language": "Español",
+    "selectLanguage": "Seleccionar Idioma",
+    "loading": "Cargando..."
+  },
+  "navbar": {
+    "buy": "Comprar",
+    "rent": "Alquilar",
+    "sell": "Vender",
+    "saved": "Guardados"
+  },
+  "home": {
+    "title": "Inicio",
+    "description": "Explora nuestras propiedades de lujo",
+    "viewMore": "Ver más"
+  },
+  "hero": {
+    "titlePart1": "Encuentra tu",
+    "titleHighlight": "santuario",
+    "titlePart2": ".",
+    "searchPlaceholder": "Busca por ciudad, barrio o dirección...",
+    "searchButton": "Buscar",
+    "filters": "Filtros",
+    "types": {
+      "All": "Todo",
+      "House": "Casa",
+      "Apartment": "Apartamento",
+      "Villa": "Villa",
+      "Penthouse": "Ático"
+    }
+  },
+  "featured": {
+    "title": "Colecciones Destacadas",
+    "subtitle": "Propiedades selectas para los ojos más exigentes.",
+    "viewAll": "Ver todas",
+    "empty": "No hay propiedades destacadas disponibles."
+  },
+  "newInMarket": {
+    "title": "Nuevo en el Mercado",
+    "subtitle": "Oportunidades frescas añadidas esta semana.",
+    "filters": {
+      "all": "Todo",
+      "buy": "Comprar",
+      "rent": "Alquilar"
+    }
+  },
+  "propertyCard": {
+    "forSale": "EN VENTA",
+    "viewDetails": "Ver Detalles"
+  },
+  "collectionCard": {
+    "beds": "Camas",
+    "baths": "Baños"
+  },
+  "propertyDetails": {
+    "premium": "Premium",
+    "new": "Nuevo",
+    "viewAllPhotos": "Ver Todas las Fotos",
+    "topRatedAgent": "Agente Destacado",
+    "scheduleVisit": "Agendar Visita",
+    "contactAgent": "Contactar Agente",
+    "propertyFeatures": "Características de la Propiedad",
+    "squareMeters": "Metros Cuadrados",
+    "bedrooms": "Dormitorios",
+    "bathrooms": "Baños",
+    "garage": "Garaje",
+    "aboutHome": "Acerca de esta casa",
+    "amenitiesTitle": "Comodidades",
+    "amenitiesList": {
+      "system": "Sistema de Casa Inteligente",
+      "pool": "Piscina",
+      "climate": "Calefacción y Aire Central",
+      "ev": "Carga de Vehículos Eléctricos",
+      "gym": "Gimnasio Privado",
+      "wine": "Bodega de Vinos"
+    },
+    "estimatedPayment": "Pago Estimado",
+    "startingFrom": "Desde",
+    "monthly": "/mes",
+    "withDown": "con 20% de pago inicial",
+    "calculateMortgage": "Calcular Hipoteca",
+    "notFoundTitle": "Propiedad No Encontrada",
+    "viewDetailsFor": "Ver detalles de",
+    "locatedAt": "ubicada en",
+    "explore": "Explorar",
+    "onLuxeEstate": "en LuxeEstate"
+  }
+}

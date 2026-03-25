@@ -2,13 +2,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Collection } from '@/data/mockData';
 
-interface CollectionCardProps {
-  collection: Collection;
+interface CollectionCardDict {
+  beds: string;
+  baths: string;
 }
 
-const CollectionCard = ({ collection }: CollectionCardProps) => {
+interface CollectionCardProps {
+  collection: Collection;
+  dict: CollectionCardDict;
+}
+
+const CollectionCard = ({ collection, dict }: CollectionCardProps) => {
   return (
-    <Link 
+    <Link
       href={`/propiedades/${collection.slug}`}
       className="group relative rounded-xl overflow-hidden shadow-soft bg-white cursor-pointer block"
     >
@@ -62,13 +68,13 @@ const CollectionCard = ({ collection }: CollectionCardProps) => {
             <span className="material-icons text-lg font-material-icons">
               king_bed
             </span>{' '}
-            {collection.beds} Beds
+            {collection.beds} {dict.beds}
           </div>
           <div className="flex items-center gap-2 text-nordic-muted text-sm">
             <span className="material-icons text-lg font-material-icons">
               bathtub
             </span>{' '}
-            {collection.baths} Baths
+            {collection.baths} {dict.baths}
           </div>
           <div className="flex items-center gap-2 text-nordic-muted text-sm">
             <span className="material-icons text-lg font-material-icons">

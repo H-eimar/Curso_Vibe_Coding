@@ -2,11 +2,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Property } from '@/types/property';
 
-interface PropertyCardProps {
-  property: Property;
+interface PropertyCardDict {
+  forSale: string;
+  viewDetails: string;
 }
 
-const PropertyCard = ({ property }: PropertyCardProps) => {
+interface PropertyCardProps {
+  property: Property;
+  dict: PropertyCardDict;
+}
+
+const PropertyCard = ({ property, dict }: PropertyCardProps) => {
   return (
     <article className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-mosque/5 group flex flex-col h-full">
       {/* Image Container */}
@@ -27,7 +33,7 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
 
         {/* For Sale badge */}
         <div className="absolute bottom-3 left-3 text-white text-xs font-bold px-2 py-1 rounded bg-nordic/90">
-          FOR SALE
+          {dict.forSale}
         </div>
       </div>
 
@@ -65,12 +71,13 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
             {property.area}m²
           </div>
         </div>
+
         {/* Details Button */}
         <Link
           href={`/propiedades/${property.slug}`}
           className="block w-full text-center bg-mosque/5 hover:bg-mosque text-mosque hover:text-white py-3 rounded-xl font-medium transition-colors mt-4"
         >
-          Ver Detalles
+          {dict.viewDetails}
         </Link>
       </div>
     </article>
@@ -78,4 +85,3 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
 };
 
 export default PropertyCard;
-

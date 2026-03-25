@@ -1,0 +1,89 @@
+{
+  "common": {
+    "language": "Français",
+    "selectLanguage": "Choisir la langue",
+    "loading": "Chargement..."
+  },
+  "navbar": {
+    "buy": "Acheter",
+    "rent": "Louer",
+    "sell": "Vendre",
+    "saved": "Sauvegardés"
+  },
+  "home": {
+    "title": "Accueil",
+    "description": "Explorez nos propriétés de luxe",
+    "viewMore": "Voir plus"
+  },
+  "hero": {
+    "titlePart1": "Trouvez votre",
+    "titleHighlight": "sanctuaire",
+    "titlePart2": ".",
+    "searchPlaceholder": "Recherchez par ville, quartier ou adresse...",
+    "searchButton": "Rechercher",
+    "filters": "Filtres",
+    "types": {
+      "All": "Tout",
+      "House": "Maison",
+      "Apartment": "Appartement",
+      "Villa": "Villa",
+      "Penthouse": "Penthouse"
+    }
+  },
+  "featured": {
+    "title": "Collections en Vedette",
+    "subtitle": "Propriétés sélectionnées pour les plus exigeants.",
+    "viewAll": "Voir tout",
+    "empty": "Aucune propriété en vedette disponible."
+  },
+  "newInMarket": {
+    "title": "Nouveau sur le marché",
+    "subtitle": "Nouvelles opportunités ajoutées cette semaine.",
+    "filters": {
+      "all": "Tout",
+      "buy": "Acheter",
+      "rent": "Louer"
+    }
+  },
+  "propertyCard": {
+    "forSale": "À VENDRE",
+    "viewDetails": "Voir les détails"
+  },
+  "collectionCard": {
+    "beds": "Lits",
+    "baths": "Salles de bain"
+  },
+  "propertyDetails": {
+    "premium": "Premium",
+    "new": "Nouveau",
+    "viewAllPhotos": "Voir Toutes les Photos",
+    "topRatedAgent": "Agent Étoilé",
+    "scheduleVisit": "Planifier une Visite",
+    "contactAgent": "Contacter l'Agent",
+    "propertyFeatures": "Caractéristiques de la Propriété",
+    "squareMeters": "Mètres Carrés",
+    "bedrooms": "Chambres",
+    "bathrooms": "Salles de bain",
+    "garage": "Garage",
+    "aboutHome": "À propos de cette maison",
+    "amenitiesTitle": "Équipements",
+    "amenitiesList": {
+      "system": "Système de Maison Intelligente",
+      "pool": "Piscine",
+      "climate": "Chauffage et Climatisation Centraux",
+      "ev": "Recharge de Véhicules Électriques",
+      "gym": "Gymnase Privé",
+      "wine": "Cave à Vin"
+    },
+    "estimatedPayment": "Paiement Estimé",
+    "startingFrom": "À partir de",
+    "monthly": "/mois",
+    "withDown": "avec 20% d'acompte",
+    "calculateMortgage": "Calculer l'Hypothèque",
+    "notFoundTitle": "Propriété Non Trouvée",
+    "viewDetailsFor": "Voir les détails pour",
+    "locatedAt": "située à",
+    "explore": "Explorer",
+    "onLuxeEstate": "sur LuxeEstate"
+  }
+}

@@ -2,9 +2,11 @@ import Link from 'next/link';
 import { Collection } from '@/data/mockData';
 import CollectionCard from './ui/CollectionCard';
 import { createClient } from '@/lib/supabase/server';
+import { getDictionary } from '@/lib/i18n';
 
 const FeaturedCollection = async () => {
   const supabase = await createClient();
+  const dict = await getDictionary();
 
   const { data: properties } = await supabase
     .from('properties')
@@ -30,17 +32,17 @@ const FeaturedCollection = async () => {
       <div className="flex items-end justify-between mb-8">
         <div>
           <h2 className="text-2xl font-light text-nordic">
-            Featured Collections
+            {dict.featured.title}
           </h2>
           <p className="text-nordic-muted mt-1 text-sm">
-            Curated properties for the discerning eye.
+            {dict.featured.subtitle}
           </p>
         </div>
         <Link
           href="#"
           className="hidden sm:flex items-center gap-1 text-sm font-medium text-mosque hover:opacity-70 transition-opacity"
         >
-          View all{' '}
+          {dict.featured.viewAll}{' '}
           <span className="material-icons text-sm font-material-icons">
             arrow_forward
           </span>
@@ -50,11 +52,11 @@ const FeaturedCollection = async () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {collections.length > 0 ? (
           collections.map((collection) => (
-            <CollectionCard key={collection.id} collection={collection} />
+            <CollectionCard key={collection.id} collection={collection} dict={dict.collectionCard} />
           ))
         ) : (
           <p className="text-nordic-muted text-sm col-span-2">
-            No featured properties available.
+            {dict.featured.empty}
           </p>
         )}
       </div>
@@ -63,4 +65,3 @@ const FeaturedCollection = async () => {
 };
 
 export default FeaturedCollection;
-

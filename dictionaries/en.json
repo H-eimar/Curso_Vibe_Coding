@@ -1,0 +1,89 @@
+{
+  "common": {
+    "language": "English",
+    "selectLanguage": "Select Language",
+    "loading": "Loading..."
+  },
+  "navbar": {
+    "buy": "Buy",
+    "rent": "Rent",
+    "sell": "Sell",
+    "saved": "Saved"
+  },
+  "home": {
+    "title": "Home",
+    "description": "Explore our luxury properties",
+    "viewMore": "View more"
+  },
+  "hero": {
+    "titlePart1": "Find your",
+    "titleHighlight": "sanctuary",
+    "titlePart2": ".",
+    "searchPlaceholder": "Search by city, neighborhood, or address...",
+    "searchButton": "Search",
+    "filters": "Filters",
+    "types": {
+      "All": "All",
+      "House": "House",
+      "Apartment": "Apartment",
+      "Villa": "Villa",
+      "Penthouse": "Penthouse"
+    }
+  },
+  "featured": {
+    "title": "Featured Collections",
+    "subtitle": "Curated properties for the discerning eye.",
+    "viewAll": "View all",
+    "empty": "No featured properties available."
+  },
+  "newInMarket": {
+    "title": "New in Market",
+    "subtitle": "Fresh opportunities added this week.",
+    "filters": {
+      "all": "All",
+      "buy": "Buy",
+      "rent": "Rent"
+    }
+  },
+  "propertyCard": {
+    "forSale": "FOR SALE",
+    "viewDetails": "View Details"
+  },
+  "collectionCard": {
+    "beds": "Beds",
+    "baths": "Baths"
+  },
+  "propertyDetails": {
+    "premium": "Premium",
+    "new": "New",
+    "viewAllPhotos": "View All Photos",
+    "topRatedAgent": "Top Rated Agent",
+    "scheduleVisit": "Schedule Visit",
+    "contactAgent": "Contact Agent",
+    "propertyFeatures": "Property Features",
+    "squareMeters": "Square Meters",
+    "bedrooms": "Bedrooms",
+    "bathrooms": "Bathrooms",
+    "garage": "Garage",
+    "aboutHome": "About this home",
+    "amenitiesTitle": "Amenities",
+    "amenitiesList": {
+      "system": "Smart Home System",
+      "pool": "Swimming Pool",
+      "climate": "Central Heating & Cooling",
+      "ev": "Electric Vehicle Charging",
+      "gym": "Private Gym",
+      "wine": "Wine Cellar"
+    },
+    "estimatedPayment": "Estimated Payment",
+    "startingFrom": "Starting from",
+    "monthly": "/mo",
+    "withDown": "with 20% down",
+    "calculateMortgage": "Calculate Mortgage",
+    "notFoundTitle": "Property Not Found",
+    "viewDetailsFor": "View details for",
+    "locatedAt": "located at",
+    "explore": "Explore",
+    "onLuxeEstate": "on LuxeEstate"
+  }
+}
